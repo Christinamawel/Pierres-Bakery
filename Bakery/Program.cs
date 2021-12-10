@@ -19,9 +19,10 @@ namespace UI
       Console.WriteLine("---------------------------------------");
       Console.WriteLine("Welcome To Pierre's Bakery!");
       Console.WriteLine("---------------------------------------");
+      Console.WriteLine("~~~~~~~~~~~~~~~SALE~~~~~~~~~~~~~~~~~~~~");
       Console.WriteLine("Buy 2 loafs of bread get one free!");
       Console.WriteLine("Get 3 pastries for $5!");
-      Console.WriteLine("---------------------------------------");
+      Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       Menu();
 
       // Main Menu
@@ -60,6 +61,11 @@ namespace UI
       // Order Bread
       static void orderBread()
       {
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("SALE!");
+        Console.WriteLine("Buy 2 loafs get a third free!");
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("Loafs of bread are $5 each");
         Console.WriteLine("How Many total loafs of bread would you like?");
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
@@ -93,6 +99,11 @@ namespace UI
       //order pastry
       static void orderPastry()
       {
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("SALE!");
+        Console.WriteLine("Get 3 Pastries for $5!");
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("Pastries are $2 each");
         Console.WriteLine("How Many total Pastries would you like?");
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
