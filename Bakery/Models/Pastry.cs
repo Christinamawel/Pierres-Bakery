@@ -11,7 +11,7 @@ namespace PastryOrder.Models
 
     public int TotalPrice()
     {
-      return 0;
+      return Amount * 2;
     }
   }
 }
