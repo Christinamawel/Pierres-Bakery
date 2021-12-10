@@ -15,8 +15,11 @@ namespace BreadOrder.Models
 
     public int TotalPrice()
     {
-      int freeBread = WhiteBread / 3;
-      return WhiteBread * 5 - freeBread * 5;
+      int freeBread = (WhiteBread + WheatBread + Sourdough) / 3;
+      int costWhiteBread = WhiteBread * 5;
+      int costWheatBread = WheatBread * 5;
+      int costSourdough = Sourdough * 8;
+      return (costWhiteBread + costWheatBread + costSourdough) - freeBread * 5;
     }
 
   }
