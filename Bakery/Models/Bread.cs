@@ -10,6 +10,7 @@ namespace BreadOrder.Models
     {
       WhiteBread = whiteBread;
       WheatBread = wheatBread;
+      Sourdough = sourdough;
     }
 
     public int TotalPrice()
