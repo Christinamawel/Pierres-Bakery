@@ -11,7 +11,7 @@ namespace BreadOrder.Models
 
     public int TotalPrice()
     {
-      return 0;
+      return Amount * 5;
     }
 
   }
