@@ -17,14 +17,40 @@ namespace UI
       Console.WriteLine("Buy 2 loafs of bread get one free!");
       Console.WriteLine("Get 3 pastries for $5!");
       Console.WriteLine("---------------------------------------");
-      Console.WriteLine("Menu:");
-      Console.WriteLine("To Order Bread: order bread");
-      Console.WriteLine("To Order Pastries: order pastries");
-      Console.WriteLine("To View Order Total: view total");
-      
-      string input = Console.ReadLine();
+      Menu();
 
-      if (input == "order bread")
+      // Main Menu
+      static void Menu()
+      {
+        Console.WriteLine("---Options---");
+        Console.WriteLine("To Order Bread: order bread");
+        Console.WriteLine("To Order Pastries: order pastries");
+        Console.WriteLine("To View Order Total: view total");
+
+        string input = Console.ReadLine();
+
+        if (input == "order bread")
+        {
+          orderBread();
+        }
+        else if (input == "order pastries")
+        {
+          orderPastry();
+        }
+        else if (input == "view total")
+        {
+          Console.WriteLine("Your Current Total is: $" + (pastryOrder.TotalPrice() + breadOrder.TotalPrice()).ToString());
+          orderFinish();
+        } 
+        else 
+        {
+          Console.WriteLine("Sorry that was not a valid input.");
+          Menu();
+        }
+      }
+
+      // Order Bread
+      static void orderBread()
       {
         Console.WriteLine("How Many total loafs of bread would you like?");
         string amount = Console.ReadLine();
@@ -32,9 +58,30 @@ namespace UI
         breadOrder.Amount = intAmount;
         Console.WriteLine("Ordering " + breadOrder.Amount.ToString() +" Loafs of bread.");
         Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
-        Main();
+        breadConfirm();
       }
-      else if (input == "order pastries")
+
+      static void breadConfirm()
+      {
+        Console.WriteLine("Is This Correct? type y for yes or n for no");
+        string input = Console.ReadLine();
+        if (input == "y")
+        {
+          Menu();
+        }
+        else if (input == "n")
+        {
+          orderBread();
+        }
+        else
+        {
+          Console.WriteLine("Sorry that was not a vaild input.");
+          breadConfirm();
+        }
+      }
+
+      //order pastry
+      static void orderPastry()
       {
         Console.WriteLine("How Many total Pastries would you like?");
         string amount = Console.ReadLine();
@@ -42,15 +89,41 @@ namespace UI
         pastryOrder.Amount = intAmount;
         Console.WriteLine("Ordering " + pastryOrder.Amount.ToString() +" pastries.");
         Console.WriteLine("Pastry Order Total: $" + pastryOrder.TotalPrice().ToString());
-        Main();
+        pastryConfirm();
       }
-      else if (input == "view total")
+
+      static void pastryConfirm()
       {
-        Console.WriteLine("Your Current Total is: $" + (pastryOrder.TotalPrice() + breadOrder.TotalPrice()).ToString());
+        Console.WriteLine("Is This Correct? type y for yes or n for no");
+        string input = Console.ReadLine();
+        if (input == "y")
+        {
+          Menu();
+        }
+        else if (input == "n")
+        {
+          orderPastry();
+        }
+        else
+        {
+          Console.WriteLine("Sorry that was not a vaild input.");
+          pastryConfirm();
+        }
+      }
+
+      // finish order
+      static void orderFinish()
+      {
         Console.WriteLine("Finish Order? type y for yes or n for no");
         string userInput = Console.ReadLine();
-        if (userInput == "n") {
-          Main();
+        if (userInput == "n") 
+        {
+          Menu();
+        }
+        else if (userInput != "y")
+        {
+          Console.WriteLine("Sorry that was not a valid input.");
+          orderFinish();
         }
       }
     }
