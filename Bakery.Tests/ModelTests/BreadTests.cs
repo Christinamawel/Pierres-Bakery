@@ -88,5 +88,20 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(totalPrice, result);
     }
+    [TestMethod]
+    public void TotalPrice_ReturnsTotalPriceAccountingForSourdoughPrice_Int()
+    {
+      //Arrange
+      // get $8 off price if no other bread can be subtracted from price
+      int whitebread = 0;
+      int wheatbread = 0;
+      int sourdough = 4;
+      int totalPrice = 32 - 8;
+      //Act
+      Bread testOrder = new Bread(whitebread, wheatbread, sourdough);
+      int result = testOrder.TotalPrice();
+      //Assert
+      Assert.AreEqual(totalPrice, result);
+    }
   }
 }
