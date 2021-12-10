@@ -8,5 +8,10 @@ namespace PastryOrder.Models
     {
       Amount = amount;
     }
+
+    public int TotalPrice()
+    {
+      return 0;
+    }
   }
 }
