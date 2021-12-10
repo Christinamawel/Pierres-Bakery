@@ -73,5 +73,20 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(amount, result);
     }
+    [TestMethod]
+    public void TotalPrice_ReturnsTotalPriceAccountingForOtherBreadTypes_Int()
+    {
+      //Arrange
+      // whitebread and wheatbread are $5, sourdough bread is $8
+      int whitebread = 4;
+      int wheatbread = 2;
+      int sourdough = 1;
+      int totalPrice = 38 - 10;
+      //Act
+      Bread testOrder = new Bread(whitebread, wheatbread, sourdough);
+      int result = testOrder.TotalPrice();
+      //Assert
+      Assert.AreEqual(totalPrice, result);
+    }
   }
 }
