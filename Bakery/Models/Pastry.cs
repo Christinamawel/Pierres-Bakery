@@ -6,7 +6,7 @@ namespace PastryOrder.Models
 
     public Pastry(int amount)
     {
-      
+      Amount = amount;
     }
   }
 }
