@@ -39,5 +39,17 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(totalPrice, result);
     }
+    [TestMethod]
+    public void TotalPrice_ReturnsTotalPriceAccountingForBuyTwoGetOneSale_Int()
+    {
+      //Arrange
+      int amount = 4;
+      int totalPrice = 4 * 5 - 5;
+      //Act
+      Bread testOrder = new Bread(amount);
+      int result = testOrder.TotalPrice();
+      //Assert
+      Assert.AreEqual(totalPrice, result);
+    }
   }
 }
