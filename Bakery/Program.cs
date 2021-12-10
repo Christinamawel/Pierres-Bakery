@@ -11,6 +11,11 @@ namespace UI
 
     static void Main()
     {
+      Console.WriteLine("  ___ _                 _    ");
+      Console.WriteLine(" | _ (_)___ _ _ _ _ ___( )___");
+      Console.WriteLine(" |  _/ / -_) '_| '_/ -_)/(_-<");
+      Console.WriteLine(" |_| |_\\___|_| |_| \\___| /__/");
+      Console.WriteLine("                             ");
       Console.WriteLine("---------------------------------------");
       Console.WriteLine("Welcome To Pierre's Bakery!");
       Console.WriteLine("---------------------------------------");
@@ -26,6 +31,7 @@ namespace UI
         Console.WriteLine("To Order Bread: order bread");
         Console.WriteLine("To Order Pastries: order pastries");
         Console.WriteLine("To View Order Total: view total");
+        Console.WriteLine("---------------------------------------");
 
         string input = Console.ReadLine();
 
@@ -39,7 +45,9 @@ namespace UI
         }
         else if (input == "view total")
         {
+          Console.WriteLine("---------------------------------------");
           Console.WriteLine("Your Current Total is: $" + (pastryOrder.TotalPrice() + breadOrder.TotalPrice()).ToString());
+          Console.WriteLine("---------------------------------------");
           orderFinish();
         } 
         else 
@@ -56,8 +64,10 @@ namespace UI
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
         breadOrder.Amount = intAmount;
+        Console.WriteLine("---------------------------------------");
         Console.WriteLine("Ordering " + breadOrder.Amount.ToString() +" Loafs of bread.");
         Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
+        Console.WriteLine("---------------------------------------");
         breadConfirm();
       }
 
@@ -87,8 +97,10 @@ namespace UI
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
         pastryOrder.Amount = intAmount;
+        Console.WriteLine("---------------------------------------");
         Console.WriteLine("Ordering " + pastryOrder.Amount.ToString() +" pastries.");
         Console.WriteLine("Pastry Order Total: $" + pastryOrder.TotalPrice().ToString());
+        Console.WriteLine("---------------------------------------");
         pastryConfirm();
       }
 
