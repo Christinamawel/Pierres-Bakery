@@ -1,3 +1,5 @@
+using System;
+
 namespace BreadOrder.Models
 {
   public class Bread
@@ -11,7 +13,8 @@ namespace BreadOrder.Models
 
     public int TotalPrice()
     {
-      return Amount * 5;
+      int freeBread = Amount / 3;
+      return Amount * 5 - freeBread * 5;
     }
 
   }
