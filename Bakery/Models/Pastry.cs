@@ -2,7 +2,7 @@ namespace PastryOrder.Models
 {
   public class Pastry
   {
-    public int Amount { get; }
+    public int Amount { get; set; }
 
     public Pastry(int amount)
     {
