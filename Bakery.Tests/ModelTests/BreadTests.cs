@@ -12,18 +12,18 @@ namespace Bakery.Tests
     {
       //Arrange
       //Act
-      Bread testOrder = new Bread(5);
+      Bread testOrder = new Bread(5, 0, 0);
       //Assert
       Assert.AreEqual(typeof(Bread), testOrder.GetType());
     }
     [TestMethod]
-    public void GetAmount_ReturnsAmount_Int()
+    public void GetWhiteBread_ReturnsAmountForWhiteBread_Int()
     {
       //Arrange
       int amount = 5;
       //Act
-      Bread testOrder = new Bread(amount);
-      int result = testOrder.Amount;
+      Bread testOrder = new Bread(amount, 0, 0);
+      int result = testOrder.WhiteBread;
       //Assert
       Assert.AreEqual(amount, result);
     }
@@ -34,7 +34,7 @@ namespace Bakery.Tests
       int amount = 2;
       int totalPrice = 2 * 5;
       //Act
-      Bread testOrder = new Bread(amount);
+      Bread testOrder = new Bread(amount, 0, 0);
       int result = testOrder.TotalPrice();
       //Assert
       Assert.AreEqual(totalPrice, result);
@@ -46,10 +46,21 @@ namespace Bakery.Tests
       int amount = 4;
       int totalPrice = 4 * 5 - 5;
       //Act
-      Bread testOrder = new Bread(amount);
+      Bread testOrder = new Bread(amount, 0, 0);
       int result = testOrder.TotalPrice();
       //Assert
       Assert.AreEqual(totalPrice, result);
+    }
+    [TestMethod]
+    public void GetWheatBread_ReturnsAmountForWheatBread_Int()
+    {
+      //Arrange
+      int amount = 5;
+      //Act
+      Bread testOrder = new Bread(0, amount, 0);
+      int result = testOrder.WheatBread;
+      //Assert
+      Assert.AreEqual(amount, result);
     }
   }
 }

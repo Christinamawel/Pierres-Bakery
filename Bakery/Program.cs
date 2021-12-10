@@ -6,7 +6,7 @@ namespace UI
 {
   public class Program 
   {
-    public static Bread breadOrder = new Bread(0);
+    public static Bread breadOrder = new Bread(0, 0, 0);
     public static Pastry pastryOrder = new Pastry(0);
 
     static void Main()
@@ -69,13 +69,13 @@ namespace UI
         Console.WriteLine("How Many total loafs of bread would you like?");
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
-        breadOrder.Amount = intAmount;
+        breadOrder.WhiteBread = intAmount;
         Console.WriteLine("---------------------------------------");
         if ((intAmount + 1) % 3 == 0) {
           Console.WriteLine("~~~~Order one more loaf of bread for free!~~~~");
           Console.WriteLine("Change your bread order to one more to recive this offer");
         }
-        Console.WriteLine("Ordering " + breadOrder.Amount.ToString() +" Loafs of bread.");
+        Console.WriteLine("Ordering " + breadOrder.WhiteBread.ToString() +" Loafs of bread.");
         Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
         Console.WriteLine("---------------------------------------");
         breadConfirm();

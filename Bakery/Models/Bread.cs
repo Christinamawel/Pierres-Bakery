@@ -2,17 +2,19 @@ namespace BreadOrder.Models
 {
   public class Bread
   {
-    public int Amount { get; set; }
+    public int WhiteBread { get; set; }
+    public int WheatBread { get; set; }
+    public int Sourdough { get; set; }
 
-    public Bread(int amount)
+    public Bread(int whiteBread, int wheatBread, int sourdough)
     {
-      Amount = amount;
+      WhiteBread = whiteBread;
     }
 
     public int TotalPrice()
     {
-      int freeBread = Amount / 3;
-      return Amount * 5 - freeBread * 5;
+      int freeBread = WhiteBread / 3;
+      return WhiteBread * 5 - freeBread * 5;
     }
 
   }
