@@ -62,5 +62,16 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(amount, result);
     }
+    [TestMethod]
+    public void GetSourdough_ReturnsAmountForSourdough_Int()
+    {
+      //Arrange
+      int amount = 5;
+      //Act
+      Bread testOrder = new Bread(0, 0, amount);
+      int result = testOrder.Sourdough;
+      //Assert
+      Assert.AreEqual(amount, result);
+    }
   }
 }
