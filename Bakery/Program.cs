@@ -29,8 +29,8 @@ namespace UI
       static void Menu()
       {
         Console.WriteLine("---Options---");
-        Console.WriteLine("To Order Bread: order bread");
-        Console.WriteLine("To Order Pastries: order pastries");
+        Console.WriteLine("To Order Bread / Change Bread Order: order bread");
+        Console.WriteLine("To Order Pastries / Change Pastry Order: order pastries");
         Console.WriteLine("To View Order Total: view total");
         Console.WriteLine("---------------------------------------");
 
@@ -71,6 +71,10 @@ namespace UI
         int intAmount = int.Parse(amount);
         breadOrder.Amount = intAmount;
         Console.WriteLine("---------------------------------------");
+        if ((intAmount + 1) % 3 == 0) {
+          Console.WriteLine("~~~~Order one more loaf of bread for free!~~~~");
+          Console.WriteLine("Change your bread order to one more to recive this offer");
+        }
         Console.WriteLine("Ordering " + breadOrder.Amount.ToString() +" Loafs of bread.");
         Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
         Console.WriteLine("---------------------------------------");
@@ -109,6 +113,10 @@ namespace UI
         int intAmount = int.Parse(amount);
         pastryOrder.Amount = intAmount;
         Console.WriteLine("---------------------------------------");
+        if ((intAmount +1) % 3 == 0) {
+          Console.WriteLine("~~~Order one more pastry for just $1!~~~");
+          Console.WriteLine("change your pastry order to one more to recive this offer");
+        }
         Console.WriteLine("Ordering " + pastryOrder.Amount.ToString() +" pastries.");
         Console.WriteLine("Pastry Order Total: $" + pastryOrder.TotalPrice().ToString());
         Console.WriteLine("---------------------------------------");
