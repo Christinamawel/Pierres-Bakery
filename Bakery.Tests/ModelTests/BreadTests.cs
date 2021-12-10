@@ -27,5 +27,17 @@ namespace Bakery.Tests
       //Assert
       Assert.AreEqual(amount, result);
     }
+    [TestMethod]
+    public void TotalPrice_ReturnsTotalPriceforAmountOfBread_Int()
+    {
+      //Arrange
+      int amount = 2;
+      int totalPrice = 2 * 5;
+      //Act
+      Bread testOrder = new Bread(amount);
+      int result = testOrder.TotalPrice();
+      //Assert
+      Assert.AreEqual(totalPrice, result);
+    }
   }
 }

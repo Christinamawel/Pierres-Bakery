@@ -8,5 +8,11 @@ namespace BreadOrder.Models
     {
       Amount = amount;
     }
+
+    public int TotalPrice()
+    {
+      return 0;
+    }
+
   }
 }
