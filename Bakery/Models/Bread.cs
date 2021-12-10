@@ -16,10 +16,20 @@ namespace BreadOrder.Models
     public int TotalPrice()
     {
       int freeBread = (WhiteBread + WheatBread + Sourdough) / 3;
+      int costFreeBread = 0;
+      if ((WhiteBread + WheatBread) < freeBread)
+      {
+        int freeSourdough = freeBread - (WhiteBread + WheatBread);
+        costFreeBread += ((WhiteBread + WheatBread) * 5) + (freeSourdough * 8);
+      }
+      else
+      {
+        costFreeBread += freeBread * 5;
+      }
       int costWhiteBread = WhiteBread * 5;
       int costWheatBread = WheatBread * 5;
       int costSourdough = Sourdough * 8;
-      return (costWhiteBread + costWheatBread + costSourdough) - freeBread * 5;
+      return (costWhiteBread + costWheatBread + costSourdough) - costFreeBread;
     }
 
   }
