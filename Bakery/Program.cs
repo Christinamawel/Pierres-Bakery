@@ -6,6 +6,9 @@ namespace UI
 {
   public class Program 
   {
+    public static Bread breadOrder = new Bread(0);
+    public static Pastry pastryOrder = new Pastry(0);
+
     static void Main()
     {
       Console.WriteLine("---------------------------------------");
@@ -20,9 +23,6 @@ namespace UI
       Console.WriteLine("To View Order Total: view total");
       
       string input = Console.ReadLine();
-      int totalPrice = 0;
-      Bread breadOrder = new Bread(0);
-      Pastry pastryOrder = new Pastry(0);
 
       if (input == "order bread")
       {
@@ -32,7 +32,6 @@ namespace UI
         breadOrder.Amount = intAmount;
         Console.WriteLine("Ordering " + breadOrder.Amount.ToString() +" Loafs of bread.");
         Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
-        totalPrice += breadOrder.TotalPrice();
         Main();
       }
       else if (input == "order pastries")
@@ -43,12 +42,11 @@ namespace UI
         pastryOrder.Amount = intAmount;
         Console.WriteLine("Ordering " + pastryOrder.Amount.ToString() +" pastries.");
         Console.WriteLine("Pastry Order Total: $" + pastryOrder.TotalPrice().ToString());
-        totalPrice += pastryOrder.TotalPrice();
         Main();
       }
       else if (input == "view total")
       {
-        Console.WriteLine("Your Current Total is: $" + totalPrice.ToString());
+        Console.WriteLine("Your Current Total is: $" + (pastryOrder.TotalPrice() + breadOrder.TotalPrice()).ToString());
         Console.WriteLine("Finish Order? type y for yes or n for no");
         string userInput = Console.ReadLine();
         if (userInput == "n") {
