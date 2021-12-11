@@ -15,14 +15,17 @@ namespace UI
       Console.WriteLine(" | _ (_)___ _ _ _ _ ___( )___");
       Console.WriteLine(" |  _/ / -_) '_| '_/ -_)/(_-<");
       Console.WriteLine(" |_| |_\\___|_| |_| \\___| /__/");
-      Console.WriteLine("                             ");
+      Console.WriteLine("");
+      Console.WriteLine("");
       Console.WriteLine("---------------------------------------");
       Console.WriteLine("Welcome To Pierre's Bakery!");
       Console.WriteLine("---------------------------------------");
+      Console.WriteLine("");
       Console.WriteLine("~~~~~~~~~~~~~~~SALE~~~~~~~~~~~~~~~~~~~~");
       Console.WriteLine("Buy 2 loafs of bread get one free!");
       Console.WriteLine("Get 3 pastries for $5!");
       Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      Console.WriteLine("");
       Menu();
 
       // Main Menu
@@ -32,12 +35,21 @@ namespace UI
         Console.WriteLine("To Order Bread / Change Bread Order: order bread");
         Console.WriteLine("To Order Pastries / Change Pastry Order: order pastries");
         Console.WriteLine("To View Order Total: view total");
-        Console.WriteLine("---------------------------------------");
+        Console.WriteLine("");
 
         string input = Console.ReadLine();
 
         if (input == "order bread")
         {
+          Console.WriteLine("");
+          Console.WriteLine("---------------------------------------");
+          Console.WriteLine("SALE!");
+          Console.WriteLine("Buy 2 loafs get a third free!");
+          Console.WriteLine("---------------------------------------");
+          Console.WriteLine("");
+          Console.WriteLine("White bread and wheat bread loafs are $5 each");
+          Console.WriteLine("Sourdough bread loafs are $8 each");
+          Console.WriteLine("");
           orderBread();
         }
         else if (input == "order pastries")
@@ -53,7 +65,9 @@ namespace UI
         } 
         else 
         {
+          Console.WriteLine("//////////////////////////////////////");
           Console.WriteLine("Sorry that was not a valid input.");
+          Console.WriteLine("//////////////////////////////////////");
           Menu();
         }
       }
@@ -61,24 +75,56 @@ namespace UI
       // Order Bread
       static void orderBread()
       {
-        Console.WriteLine("---------------------------------------");
-        Console.WriteLine("SALE!");
-        Console.WriteLine("Buy 2 loafs get a third free!");
-        Console.WriteLine("---------------------------------------");
-        Console.WriteLine("Loafs of bread are $5 each");
-        Console.WriteLine("How Many total loafs of bread would you like?");
-        string amount = Console.ReadLine();
-        int intAmount = int.Parse(amount);
-        breadOrder.WhiteBread = intAmount;
-        Console.WriteLine("---------------------------------------");
-        if ((intAmount + 1) % 3 == 0) {
-          Console.WriteLine("~~~~Order one more loaf of bread for free!~~~~");
-          Console.WriteLine("Change your bread order to one more to recive this offer");
+        Console.WriteLine("What kind of bread would you like to order?");
+        Console.WriteLine("---Options---");
+        Console.WriteLine("white bread");
+        Console.WriteLine("wheat bread");
+        Console.WriteLine("sourdough");
+        Console.WriteLine("");
+        string breadType = Console.ReadLine();
+
+        if (breadType != "white bread" && breadType != "wheat bread" && breadType != "sourdough") {
+          Console.WriteLine("//////////////////////////////////////");
+          Console.WriteLine("sorry that is not a valid input");
+          Console.WriteLine("//////////////////////////////////////");
+          orderBread();
         }
-        Console.WriteLine("Ordering " + breadOrder.WhiteBread.ToString() +" Loafs of bread.");
-        Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
-        Console.WriteLine("---------------------------------------");
-        breadConfirm();
+        else {
+          Console.WriteLine("");
+          Console.WriteLine("How Many total loafs of bread would you like?");
+          Console.WriteLine("");
+          string amount = Console.ReadLine();
+          int intAmount = int.Parse(amount);
+          if (breadType == "white bread") 
+          {
+            breadOrder.WhiteBread = intAmount;
+          }
+          else if (breadType == "wheat bread")
+          {
+            breadOrder.WheatBread = intAmount;
+          }
+          else
+          {
+            breadOrder.Sourdough = intAmount;
+          }
+          Console.WriteLine("---------------------------------------");
+          int totalBread = breadOrder.Sourdough + breadOrder.WheatBread + breadOrder.WhiteBread;
+          if ((totalBread + 1) % 3 == 0)
+          {
+            Console.WriteLine("");
+            Console.WriteLine("~~~~Order one more loaf of bread for free!~~~~");
+            Console.WriteLine("add one more bread loaf to your order to recive this offer");
+            Console.WriteLine("");
+          }
+          Console.WriteLine("Ordering:");
+          Console.WriteLine(breadOrder.WhiteBread.ToString() + " loafs of white bread");
+          Console.WriteLine(breadOrder.WheatBread.ToString() + " loafs of wheat bread");
+          Console.WriteLine(breadOrder.Sourdough.ToString() + " loafs of Sourdough bread");
+          Console.WriteLine("");
+          Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
+          Console.WriteLine("---------------------------------------");
+          breadConfirm();
+        }
       }
 
       static void breadConfirm()
@@ -95,7 +141,9 @@ namespace UI
         }
         else
         {
+          Console.WriteLine("//////////////////////////////////////");
           Console.WriteLine("Sorry that was not a vaild input.");
+          Console.WriteLine("//////////////////////////////////////");
           breadConfirm();
         }
       }
@@ -107,15 +155,19 @@ namespace UI
         Console.WriteLine("SALE!");
         Console.WriteLine("Get 3 Pastries for $5!");
         Console.WriteLine("---------------------------------------");
+        Console.WriteLine("");
         Console.WriteLine("Pastries are $2 each");
         Console.WriteLine("How Many total Pastries would you like?");
         string amount = Console.ReadLine();
         int intAmount = int.Parse(amount);
         pastryOrder.Amount = intAmount;
         Console.WriteLine("---------------------------------------");
-        if ((intAmount +1) % 3 == 0) {
+        if ((intAmount +1) % 3 == 0) 
+        {
+          Console.WriteLine("");
           Console.WriteLine("~~~Order one more pastry for just $1!~~~");
           Console.WriteLine("change your pastry order to one more to recive this offer");
+          Console.WriteLine("");
         }
         Console.WriteLine("Ordering " + pastryOrder.Amount.ToString() +" pastries.");
         Console.WriteLine("Pastry Order Total: $" + pastryOrder.TotalPrice().ToString());
@@ -137,7 +189,9 @@ namespace UI
         }
         else
         {
+          Console.WriteLine("//////////////////////////////////////");
           Console.WriteLine("Sorry that was not a vaild input.");
+          Console.WriteLine("//////////////////////////////////////");
           pastryConfirm();
         }
       }
@@ -153,7 +207,9 @@ namespace UI
         }
         else if (userInput != "y")
         {
+          Console.WriteLine("//////////////////////////////////////");
           Console.WriteLine("Sorry that was not a valid input.");
+          Console.WriteLine("//////////////////////////////////////");
           orderFinish();
         }
       }
