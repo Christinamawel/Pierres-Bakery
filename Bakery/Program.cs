@@ -22,7 +22,7 @@ namespace UI
       Console.WriteLine("---------------------------------------");
       Console.WriteLine("");
       Console.WriteLine("~~~~~~~~~~~~~~~SALE~~~~~~~~~~~~~~~~~~~~");
-      Console.WriteLine("Buy 2 loafs of bread get one free!");
+      Console.WriteLine("Buy 2 loaves of bread get one free!");
       Console.WriteLine("Get 3 pastries for $5!");
       Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       Console.WriteLine("");
@@ -44,11 +44,11 @@ namespace UI
           Console.WriteLine("");
           Console.WriteLine("---------------------------------------");
           Console.WriteLine("SALE!");
-          Console.WriteLine("Buy 2 loafs get a third free!");
+          Console.WriteLine("Buy 2 loaves get a third free!");
           Console.WriteLine("---------------------------------------");
           Console.WriteLine("");
-          Console.WriteLine("White bread and wheat bread loafs are $5 each");
-          Console.WriteLine("Sourdough bread loafs are $8 each");
+          Console.WriteLine("White bread and wheat bread loaves are $5 each");
+          Console.WriteLine("Sourdough bread loaves are $8 each");
           Console.WriteLine("");
           orderBread();
         }
@@ -91,7 +91,7 @@ namespace UI
         }
         else {
           Console.WriteLine("");
-          Console.WriteLine("How Many total loafs of bread would you like?");
+          Console.WriteLine("How Many total loaves of bread would you like?");
           Console.WriteLine("");
           string amount = Console.ReadLine();
           int intAmount = int.Parse(amount);
@@ -117,9 +117,9 @@ namespace UI
             Console.WriteLine("");
           }
           Console.WriteLine("Ordering:");
-          Console.WriteLine(breadOrder.WhiteBread.ToString() + " loafs of white bread");
-          Console.WriteLine(breadOrder.WheatBread.ToString() + " loafs of wheat bread");
-          Console.WriteLine(breadOrder.Sourdough.ToString() + " loafs of Sourdough bread");
+          Console.WriteLine(breadOrder.WhiteBread.ToString() + " loaves of white bread");
+          Console.WriteLine(breadOrder.WheatBread.ToString() + " loaves of wheat bread");
+          Console.WriteLine(breadOrder.Sourdough.ToString() + " loaves of Sourdough bread");
           Console.WriteLine("");
           Console.WriteLine("Bread Order Total: $" + breadOrder.TotalPrice().ToString());
           Console.WriteLine("---------------------------------------");
