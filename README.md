@@ -1,4 +1,4 @@
-# _Pierre's Bakery_
+# _Pierre's Bakery_        
 
 #### By **Christina Welch**
 
@@ -27,7 +27,7 @@ Note: this Project was used to showcase knowledge of TDD as well as C# knowledge
 
 ## Known Bugs
 
-The UI does not account for mistyped input and will close the program if input is not correct
+When the UI asks the user for a number it doesn't yet account for users typeing something that cannot be parsed by .Parse()
 
 ## License
 
